@@ -1,0 +1,25 @@
+<h4>Listing articles</h4>
+
+<table border="1">
+
+  <thead>
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Options</th>
+      </tr>
+  </thead>
+
+  <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.text %></td>
+        <td>
+          <%= link_to 'Edit', edit_article_path(article.id) %>
+          <%= link_to 'Delete', article, :method => 'delete' %>
+        </td>
+      </tr>
+  <% end -%>
+</table>
+
+<p><%= link_to 'New Article', new_article_path %></p>
